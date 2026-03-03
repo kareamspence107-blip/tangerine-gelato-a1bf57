@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Militant Delivery | Fast. Reliable. Militant.</title>
+  <meta name="description" content="Militant Delivery — 7 days per week. Cash on delivery or online transfer. Serving Kingston, Portmore, Spanish Town and more." />
+
+  <!-- Favicon (your logo) -->
+  <link rel="icon" type="image/jpeg" href="logo.jpeg" />
+
+  <style>
+    :root{
+      /* Theme: Green / Black / Gold */
+      --bg:#050607;
+      --panel:#0b0f12;
+      --panel2:#080b0d;
+      --text:#eef5f0;
+      --muted:#a8b6ad;
+      --line:#162019;
+
+      --green:#19d36b;
+      --green2:#0ea553;
+      --gold:#d7b56d;
+      --gold2:#b28c3f;
+
+      --glow: 0 0 26px rgba(25,211,107,.22);
+      --goldglow: 0 0 22px rgba(215,181,109,.18);
+      --shadow: 0 20px 60px rgba(0,0,0,.60);
+
+      --radius:18px;
+      --radius2:26px;
+      --max:1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(25,211,107,.14), transparent 60%),
+        radial-gradient(700px 420px at 85% 25%, rgba(215,181,109,.10), transparent 55%),
+        radial-gradient(900px 520px at 50% 120%, rgba(25,211,107,.08), transparent 55%),
+        linear-gradient(180deg, #030405, var(--bg));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(5,6,7,.72);
+      border-bottom:1px solid rgba(22,32,25,.70);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand h1{font-size:15px; line-height:1.1; margin:0}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+
+    /* Your logo */
+    .logo-img{
+      height:54px;
+      width:auto;
+      object-fit:contain;
+      border-radius:12px;
+      background:#000;
+      padding:6px;
+      border:1px solid rgba(215,181,109,.35);
+      box-shadow:
+        0 0 18px rgba(25,211,107,.20),
+        0 0 18px rgba(215,181,109,.18);
+    }
+
+    .links{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+    .links a{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    .links a:hover{color:var(--text); border-color:rgba(255,255,255,.08); background:rgba(11,15,18,.55)}
+
+    .ctaRow{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(11,15,18,.75);
+      color:var(--text);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      cursor:pointer;
+      user-select:none;
+      font-weight:650;
+      font-size:13px;
+    }
+    .btn:hover{transform: translateY(-1px); transition:.15s}
+    .btn.green{
+      background: linear-gradient(135deg, rgba(25,211,107,.95), rgba(14,165,83,.92));
+      border-color: rgba(25,211,107,.35);
+      box-shadow: var(--glow), 0 18px 48px rgba(0,0,0,.45);
+      color:#061008;
+    }
+    .btn.gold{
+      background: linear-gradient(135deg, rgba(215,181,109,.96), rgba(178,140,63,.92));
+      border-color: rgba(215,181,109,.38);
+      box-shadow: var(--goldglow), 0 18px 48px rgba(0,0,0,.45);
+      color:#120d05;
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+    }
+    .hamburger{display:none}
+    .mobileMenu{display:none; padding:0 0 14px}
+    .mobileMenu a{
+      display:block;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(11,15,18,.55);
+      margin-top:10px;
+      color: var(--muted);
+    }
+    .mobileMenu a:hover{color:var(--text)}
+    .mobileMenu.show{display:block}
+
+    /* Hero */
+    .hero{padding:52px 0 22px; position:relative}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .heroCard{
+      background: linear-gradient(180deg, rgba(11,15,18,.88), rgba(8,11,13,.78));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius2);
+      padding:26px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 300px at 25% 10%, rgba(25,211,107,.22), transparent 55%),
+        radial-gradient(420px 240px at 80% 30%, rgba(215,181,109,.12), transparent 55%),
+        linear-gradient(180deg, transparent, rgba(0,0,0,.16));
+      pointer-events:none;
+    }
+    .heroKicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      color: var(--muted);
+      font-size:12px;
+      position:relative; z-index:1;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--green);
+      box-shadow: 0 0 14px rgba(25,211,107,.55);
+    }
+    .heroTitle{
+      position:relative; z-index:1;
+      margin:14px 0 10px;
+      font-size:44px;
+      letter-spacing:-.6px;
+      line-height:1.02;
+    }
+    .heroTitle span{color:var(--gold)}
+    .heroSub{
+      position:relative; z-index:1;
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      max-width:60ch;
+    }
+    .heroBadges{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:14px;
+      position:relative; z-index:1;
+    }
+    .badge{
+      font-size:12px;
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+    }
+    .heroActions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:16px;
+      position:relative; z-index:1;
+    }
+
+    .sideCard{
+      background: linear-gradient(180deg, rgba(11,15,18,.80), rgba(8,11,13,.74));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .sideCard h3{margin:6px 0 12px; font-size:15px}
+    .statGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .stat{
+      background: rgba(0,0,0,.20);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding:12px;
+    }
+    .stat .n{font-size:18px; font-weight:800; color:var(--gold)}
+    .stat .t{font-size:12px; color:var(--muted); margin-top:2px}
+    .miniList{
+      margin-top:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:12px;
+    }
+    .miniRow{
+      display:flex; justify-content:space-between; gap:10px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    section{padding:26px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .sectionTitle h2{margin:0; font-size:20px; letter-spacing:-.2px}
+    .sectionTitle p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{
+      display:grid; grid-template-columns: repeat(3,1fr);
+      gap:14px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(11,15,18,.82), rgba(8,11,13,.74));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 18px 46px rgba(0,0,0,.35);
+    }
+    .card h3{margin:6px 0 8px; font-size:15px}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(25,211,107,.10);
+      border:1px solid rgba(25,211,107,.22);
+      box-shadow: 0 0 18px rgba(25,211,107,.12);
+      font-size:18px;
+    }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .rates{display:grid; gap:10px}
+    .rateRow{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      padding:12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+    }
+    .rateRow span{color:var(--muted); font-size:13px}
+    .rateRow strong{font-size:14px; color:var(--gold)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(215,181,109,.12);
+      border:1px solid rgba(215,181,109,.22);
+      color: var(--text);
+      font-size:12px;
+    }
+    .zones{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+    .zone{
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(11,15,18,.70);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    form{display:grid; gap:10px; margin-top:10px}
+    .field{display:grid; gap:6px}
+    label{font-size:12px; color:var(--muted)}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      outline:none;
+      font-family: var(--font);
+    }
+    textarea{min-height:90px; resize:vertical}
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(25,211,107,.35);
+      box-shadow: 0 0 0 4px rgba(25,211,107,.10);
+    }
+    .formRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    /* Services section background = BLACK */
+    #services{
+      background:#000;
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    /* Premium military styling for bearer + status */
+    .bearer-premium{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(215,181,109,.18);
+      background:
+        radial-gradient(520px 260px at 12% 10%, rgba(25,211,107,.10), transparent 55%),
+        radial-gradient(520px 260px at 85% 25%, rgba(215,181,109,.10), transparent 55%),
+        linear-gradient(180deg, rgba(10,14,16,.92), rgba(6,8,9,.85));
+    }
+    .bearer-premium:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        repeating-linear-gradient(135deg,
+          rgba(255,255,255,.02) 0px,
+          rgba(255,255,255,.02) 6px,
+          rgba(0,0,0,0) 6px,
+          rgba(0,0,0,0) 12px
+        );
+      opacity:.55;
+      pointer-events:none;
+    }
+    .bearer-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      letter-spacing:.14em;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(25,211,107,.22);
+      background: rgba(0,0,0,.28);
+      color: var(--gold);
+      position:relative;
+      z-index:1;
+    }
+    .bearer-note{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.25);
+      color: var(--muted);
+      position:relative;
+      z-index:1;
+    }
+    .bearer-confirm{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      position:relative;
+      z-index:1;
+    }
+    .bearer-confirm strong{color:var(--gold)}
+    .small{font-size:12px; color:var(--muted)}
+
+    .footer{
+      padding:26px 0 38px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .footGrid{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .floatWA{position:fixed; right:18px; bottom:18px; z-index:60}
+
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns: 1fr;}
+      .grid3{grid-template-columns: 1fr}
+      .twoCol{grid-template-columns: 1fr}
+      .formRow{grid-template-columns: 1fr}
+      .heroTitle{font-size:38px}
+      .links{display:none}
+      .hamburger{display:inline-flex}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <img src="logo.jpeg" alt="Militant Delivery Logo" class="logo-img">
+          <div>
+            <h1>Militant Delivery</h1>
+            <p>Fast. Reliable. Militant.</p>
+          </div>
+        </div>
+
+        <div class="links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#rates">Rates</a>
+          <a href="#zones">Zones</a>
+          <a href="#bearers">Bearers</a>
+          <a href="#status">Status</a>
+          <a href="#order">Order</a>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn ghost" href="#order">Order Now</a>
+          <a class="btn gold" id="waTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="btn hamburger" id="menuBtn" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu">
+        <a href="#services">Services</a>
+        <a href="#rates">Rates</a>
+        <a href="#zones">Zones</a>
+        <a href="#bearers">Bearers</a>
+        <a href="#status">Status</a>
+        <a href="#order">Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="heroCard">
+          <div class="heroKicker"><span class="dot"></span> 7 Days Per Week • Cash on Delivery • Online Transfer</div>
+          <h2 class="heroTitle">Deliveries done the <span>Militant</span> way.</h2>
+          <p class="heroSub">
+            Fast pickups, smooth drop-offs, and professional bearers. Serving Kingston, Portmore, Spanish Town and surrounding areas.
+            Order in minutes — we handle the rest.
+          </p>
+
+          <div class="heroBadges">
+            <div class="badge">🍗 Restaurant Pickups</div>
+            <div class="badge">🏢 Workplace Bundles</div>
+            <div class="badge">💡 Bill Payments</div>
+            <div class="badge">📦 Courier Service</div>
+          </div>
+
+          <div class="heroActions">
+            <a class="btn green" href="#order">Start an Order</a>
+            <a class="btn ghost" href="#bearers">Become a Bearer</a>
+          </div>
+        </div>
+
+        <aside class="sideCard">
+          <div class="pill">⭐ Quick Access</div>
+          <h3>Today’s Hot Picks</h3>
+
+          <div class="statGrid">
+            <div class="stat">
+              <div class="n">7</div>
+              <div class="t">Days per week</div>
+            </div>
+            <div class="stat">
+              <div class="n">COD</div>
+              <div class="t">Cash on delivery</div>
+            </div>
+            <div class="stat">
+              <div class="n">Fast</div>
+              <div class="t">Pickup & drop</div>
+            </div>
+            <div class="stat">
+              <div class="n">876</div>
+              <div class="t">Jamaica service</div>
+            </div>
+          </div>
+
+          <div class="miniList">
+            <div class="miniRow"><span>Base</span><strong style="color:var(--gold)">Molynes Road</strong></div>
+            <div class="miniRow"><span>Payments</span><strong style="color:var(--gold)">COD / Transfer</strong></div>
+            <div class="miniRow"><span>Support</span><strong style="color:var(--gold)">WhatsApp Fast</strong></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Services</h2>
+          <p>Everything you need — food, bills, packages, and business deliveries.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🍗</div>
+          <h3>Restaurant Pickups</h3>
+          <p>We pick up from restaurants and deliver to your home, workplace, or event. Fast updates and clean service.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>Workplace Delivery Bundles</h3>
+          <p>Office lunch runs made simple. Group orders, organized drop-off points, and smooth timing.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💡</div>
+          <h3>Bill Payments</h3>
+          <p>JPS, NWC, Courts & more. Send details and we handle the run (availability may vary by location).</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>Courier Service</h3>
+          <p>Documents, packages, and personal items delivered with care. Same-day options depending on distance.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛵</div>
+          <h3>Fast Bike Logistics</h3>
+          <p>Built for speed in traffic. Efficient routes, professional bearers, and reliable communication.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧾</div>
+          <h3>Business Accounts</h3>
+          <p>Need regular deliveries? Set up a business arrangement for frequent pickups and drop-offs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rates + Zones -->
+  <section id="rates">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Rates</h2>
+          <p>Simple rate structure. Confirm final cost before dispatch.</p>
+        </div>
+        <div class="pill">✅ Cash on Delivery • ✅ Online Transfer</div>
+      </div>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Delivery Rates</h3>
+          <p class="small">We confirm your total price before dispatch.</p>
+          <div class="rates" style="margin-top:12px;">
+            <div class="rateRow"><span>Kingston</span><strong>$500 JMD per mile</strong></div>
+            <div class="rateRow"><span>Portmore</span><strong>$1000 JMD per mile</strong></div>
+            <div class="rateRow"><span>Spanish Town</span><strong>$1500 JMD per mile</strong></div>
+          </div>
+          <p style="margin-top:12px;" class="small">Note: Special trips, tolls, or long waits may affect pricing. We confirm before we move.</p>
+        </div>
+
+        <div class="card" id="zones">
+          <h3>Zones Covered</h3>
+          <p class="small">Based around Molynes Road (Kingston) and surrounding areas.</p>
+          <div class="zones">
+            <div class="zone">Molynes Road (Base)</div>
+            <div class="zone">Duhaney Park</div>
+            <div class="zone">Meadowbrook</div>
+            <div class="zone">Havendale</div>
+            <div class="zone">Queensborough</div>
+            <div class="zone">Price Rite Area</div>
+            <div class="zone">New Kingston</div>
+            <div class="zone">Half Way Tree</div>
+          </div>
+          <p style="margin-top:12px;" class="small">Don’t see your area? Message us — we may still cover it.</p>
+          <a class="btn gold" id="waZones" href="#" target="_blank" rel="noopener" style="margin-top:12px;">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bearers -->
+  <section id="bearers">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Become a Bearer</h2>
+          <p>Apply to join the Militant Team. We review and approve fast.</p>
+        </div>
+        <div class="pill">🛡️ Premium Bearer Onboarding</div>
+      </div>
+
+      <div class="twoCol">
+
+        <!-- Info -->
+        <div class="card bearer-premium">
+          <div class="bearer-badge">MILITANT • BEARER DIVISION</div>
+          <h3 style="margin-top:12px; position:relative; z-index:1;">What you get</h3>
+
+          <div class="rates" style="margin-top:12px; position:relative; z-index:1;">
+            <div class="rateRow"><span>Starting</span><strong>$500+ per delivery</strong></div>
+            <div class="rateRow"><span>Schedule</span><strong>6 days + optional 7th</strong></div>
+            <div class="rateRow"><span>Target</span><strong>Daily goal system</strong></div>
+          </div>
+
+          <div style="margin-top:14px; position:relative; z-index:1;" class="small">
+            Requirements may include valid ID, driver’s license (if applicable), good communication, and professional attitude.
+          </div>
+
+          <div style="margin-top:14px" class="bearer-note">
+            ⚠️ WhatsApp links can’t auto-send files. After WhatsApp opens, attach your ID & License manually and send.
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="card bearer-premium">
+          <h3 style="position:relative; z-index:1;">Bearer Application</h3>
+
+          <form id="bearerForm" style="position:relative; z-index:1;">
+
+            <div class="formRow">
+              <div class="field">
+                <label for="b_name">Full Name</label>
+                <input type="text" id="b_name" required placeholder="Your full name">
+              </div>
+              <div class="field">
+                <label for="b_phone">Phone Number</label>
+                <input type="text" id="b_phone" required placeholder="876-xxx-xxxx">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="b_area">Address / Area</label>
+              <input type="text" id="b_area" required placeholder="e.g. Half Way Tree, Portmore, Spanish Town">
+            </div>
+
+            <div class="formRow">
+              <div class="field">
+                <label for="b_bike">Do you have a bike?</label>
+                <select id="b_bike" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="b_cc">Bike CC (if yes)</label>
+                <input type="text" id="b_cc" placeholder="e.g. 125cc / 150cc / 250cc">
+              </div>
+            </div>
+
+            <div class="formRow">
+              <div class="field">
+                <label for="b_experience">Delivery experience</label>
+                <select id="b_experience" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>No Experience</option>
+                  <option>1-2 Years</option>
+                  <option>3+ Years</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="b_days">Available days</label>
+                <input type="text" id="b_days" required placeholder="e.g. Monday - Saturday">
+              </div>
+            </div>
+
+            <!-- File uploads -->
+            <div class="formRow">
+              <div class="field">
+                <label for="b_id">Upload ID (photo/pdf)</label>
+                <input type="file" id="b_id" accept="image/*,.pdf">
+                <div class="small">Accepted: JPG/PNG/PDF</div>
+              </div>
+              <div class="field">
+                <label for="b_license">Upload Driver’s License (photo/pdf)</label>
+                <input type="file" id="b_license" accept="image/*,.pdf">
+                <div class="small">Accepted: JPG/PNG/PDF</div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="b_notes">Extra details</label>
+              <textarea id="b_notes" placeholder="Anything we should know?"></textarea>
+            </div>
+
+            <button class="btn gold" type="submit">Submit Application</button>
+
+            <div id="bearerConfirm" class="bearer-confirm" style="display:none;"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Approval Status -->
+  <section id="status">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Check Application Status</h2>
+          <p>Enter your Application ID to see if you’re Pending / Approved / Rejected.</p>
+        </div>
+        <div class="pill">🟡 Pending • 🟢 Approved • 🔴 Rejected</div>
+      </div>
+
+      <div class="twoCol">
+        <div class="card bearer-premium">
+          <h3 style="position:relative; z-index:1;">Status Lookup</h3>
+          <form id="statusForm" style="position:relative; z-index:1;">
+            <div class="field">
+              <label for="s_appid">Application ID</label>
+              <input id="s_appid" placeholder="e.g. MD-8F3K2Q" required>
+            </div>
+            <button class="btn green" type="submit">Check Status</button>
+            <div id="statusResult" class="bearer-confirm" style="display:none;"></div>
+          </form>
+          <div class="small" style="margin-top:10px; position:relative; z-index:1;">
+            Note: Demo status system (saved on the same device). For real tracking across phones, connect Google Sheets/Firebase.
+          </div>
+        </div>
+
+        <div class="card bearer-premium">
+          <h3 style="position:relative; z-index:1;">Admin Status Update (Demo)</h3>
+          <div class="small" style="position:relative; z-index:1;">Use this to update a status for testing. Change your Admin PIN in the script.</div>
+
+          <form id="adminForm" style="margin-top:10px; position:relative; z-index:1;">
+            <div class="formRow">
+              <div class="field">
+                <label for="a_pin">Admin PIN</label>
+                <input id="a_pin" placeholder="Enter PIN" required>
+              </div>
+              <div class="field">
+                <label for="a_appid">Application ID</label>
+                <input id="a_appid" placeholder="MD-XXXXXX" required>
+              </div>
+            </div>
+
+            <div class="formRow">
+              <div class="field">
+                <label for="a_status">Set status</label>
+                <select id="a_status" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>Pending</option>
+                  <option>Approved</option>
+                  <option>Rejected</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="a_note">Admin note (optional)</label>
+                <input id="a_note" placeholder="e.g. Bring TRN / Update docs">
+              </div>
+            </div>
+
+            <button class="btn gold" type="submit">Update Status</button>
+            <div id="adminResult" class="bearer-confirm" style="display:none;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order -->
+  <section id="order">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <div>
+          <h2>Place an Order</h2>
+          <p>Fill this out and send it straight to WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Order Details</h3>
+
+          <form id="orderForm">
+            <div class="formRow">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" placeholder="e.g. 876-xxx-xxxx" required />
+              </div>
+            </div>
+
+            <!-- ✅ EMAIL ADDED -->
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="service">Service Type</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Restaurant Pickup</option>
+                <option>Workplace Bundle</option>
+                <option>Bill Payment</option>
+                <option>Courier / Package</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="formRow">
+              <div class="field">
+                <label for="pickup">Pickup Location</label>
+                <input id="pickup" name="pickup" placeholder="Where to pick up?" required />
+              </div>
+              <div class="field">
+                <label for="dropoff">Drop-off Location</label>
+                <input id="dropoff" name="dropoff" placeholder="Where to deliver?" required />
+              </div>
+            </div>
+
+            <div class="formRow">
+              <div class="field">
+                <label for="payment">Payment Method</label>
+                <select id="payment" name="payment" required>
+                  <option value="" selected disabled>Select payment</option>
+                  <option>Cash on Delivery (COD)</option>
+                  <option>Online Transfer</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="time">Preferred Time</label>
+                <input id="time" name="time" placeholder="Now / 1PM / After work" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="Any extra details? (items, restaurant name, bill account #, etc.)"></textarea>
+            </div>
+
+            <button class="btn gold" type="submit">Send Order to WhatsApp</button>
+            <p class="small" style="margin:0;">Tip: After you send, we’ll confirm price + dispatch.</p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="small">Tap WhatsApp for quick support.</p>
+
+          <div class="miniList">
+            <div class="miniRow"><span>Hours</span><strong style="color:var(--gold)">7 Days Per Week</strong></div>
+            <div class="miniRow"><span>Base</span><strong style="color:var(--gold)">Molynes Road, Kingston</strong></div>
+            <div class="miniRow"><span>Payments</span><strong style="color:var(--gold)">COD / Transfer</strong></div>
+          </div>
+
+          <div class="heroActions" style="margin-top:12px;">
+            <a class="btn green" id="waHelp" href="#" target="_blank" rel="noopener">WhatsApp Support</a>
+          </div>
+
+          <p style="margin-top:12px;" class="small">
+            Safety: We confirm pickup items and drop-off details before moving.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footGrid">
+        <div>
+          <strong style="color:var(--text);">Militant Delivery</strong>
+          <div class="small">Fast. Reliable. Militant.</div>
+        </div>
+        <div class="small">© <span id="year"></span> Militant Delivery • Jamaica (876)</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <div class="floatWA">
+    <a class="btn green" id="waFloat" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    // ======================
+    // CORE SETTINGS
+    // ======================
+    // ✅ Your number added (Jamaica): 876-427-0837
+    const WHATSAPP_NUMBER = "18764270837";
+
+    // ✅ Automatic email copy (change to YOUR email)
+    const BUSINESS_EMAIL = "militantdelivery876@gmail.com";
+
+    // ✅ Admin PIN for demo status updates (change this!)
+    const ADMIN_PIN = "8760";
+
+    const waBase = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+    function setWA(el, msg){
+      if(!el) return;
+      el.href = `${waBase}?text=${encodeURIComponent(msg)}`;
+    }
+
+    // Top buttons
+    setWA(document.getElementById("waTop"), "Hi Militant Delivery, I’m ready to place an order.");
+    setWA(document.getElementById("waFloat"), "Hi Militant Delivery, I need a delivery.");
+    setWA(document.getElementById("waHelp"), "Hi Militant Delivery, I have a question.");
+    setWA(document.getElementById("waZones"), "Hi Militant Delivery, do you cover my area? My location is:");
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn?.addEventListener("click", () => mobileMenu.classList.toggle("show"));
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ======================
+    // ORDER FORM -> WHATSAPP (✅ EMAIL INCLUDED)
+    // ======================
+    const orderForm = document.getElementById("orderForm");
+    orderForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = new FormData(orderForm);
+      const msg =
+`Militant Delivery Order
+Name: ${data.get("name") || ""}
+Phone: ${data.get("phone") || ""}
+Email: ${data.get("email") || ""}
+Service: ${data.get("service") || ""}
+Pickup: ${data.get("pickup") || ""}
+Drop-off: ${data.get("dropoff") || ""}
+Payment: ${data.get("payment") || ""}
+Preferred Time: ${data.get("time") || ""}
+Notes: ${data.get("notes") || ""}`.trim();
+
+      window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank");
+    });
+
+    // ======================
+    // BEARER + STATUS SYSTEM
+    // ======================
+    function getApps(){
+      try { return JSON.parse(localStorage.getItem("md_apps") || "[]"); }
+      catch { return []; }
+    }
+    function saveApps(apps){
+      localStorage.setItem("md_apps", JSON.stringify(apps));
+    }
+    function makeAppId(){
+      return "MD-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    // Bearer Form
+    const bearerForm = document.getElementById("bearerForm");
+    const bearerConfirm = document.getElementById("bearerConfirm");
+
+    bearerForm.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const idFile = document.getElementById("b_id").files[0];
+      const licFile = document.getElementById("b_license").files[0];
+
+      const appId = makeAppId();
+      const createdAt = new Date().toISOString();
+
+      const payload = {
+        appId,
+        status: "Pending",
+        createdAt,
+        name: document.getElementById("b_name").value.trim(),
+        phone: document.getElementById("b_phone").value.trim(),
+        area: document.getElementById("b_area").value.trim(),
+        hasBike: document.getElementById("b_bike").value,
+        bikeCC: document.getElementById("b_cc").value.trim(),
+        experience: document.getElementById("b_experience").value,
+        days: document.getElementById("b_days").value.trim(),
+        notes: document.getElementById("b_notes").value.trim(),
+        idFilename: idFile ? idFile.name : "Not attached yet",
+        licenseFilename: licFile ? licFile.name : "Not attached yet",
+        adminNote: ""
+      };
+
+      const apps = getApps();
+      apps.push(payload);
+      saveApps(apps);
+
+      const msg =
+`🚨 NEW BEARER APPLICATION 🚨
+Application ID: ${payload.appId}
+Status: ${payload.status}
+
+Name: ${payload.name}
+Phone: ${payload.phone}
+Area: ${payload.area}
+
+Has Bike: ${payload.hasBike}
+Bike CC: ${payload.bikeCC || "N/A"}
+Experience: ${payload.experience}
+Available Days: ${payload.days}
+
+ID File: ${payload.idFilename}
+License File: ${payload.licenseFilename}
+
+Notes: ${payload.notes || "N/A"}
+
+⚠️ Applicant must attach ID + License in WhatsApp after this message sends.`;
+
+      // WhatsApp
+      window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank");
+
+      // Email copy (opens user's email client)
+      const subject = `Bearer Application - ${payload.appId} - ${payload.name}`;
+      const body = msg + `
+
+(Email copy generated from website. If files were selected, please attach them manually.)`;
+      window.open(`mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+
+      // Confirmation
+      bearerConfirm.style.display = "block";
+      bearerConfirm.innerHTML =
+        `✅ Application submitted.<br>
+         <strong>Your Application ID:</strong> ${payload.appId}<br>
+         <span class="small">Save it to check your status in the Status section.</span><br><br>
+         <a class="btn ghost" href="#status" style="display:inline-flex;">Check Status</a>
+         <div class="small" style="margin-top:10px;">
+           Next: In WhatsApp, please attach your ID and Driver’s License files.
+         </div>`;
+
+      bearerForm.reset();
+    });
+
+    // Status Lookup
+    const statusForm = document.getElementById("statusForm");
+    const statusResult = document.getElementById("statusResult");
+
+    statusForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("s_appid").value.trim().toUpperCase();
+      const apps = getApps();
+      const app = apps.find(a => a.appId === id);
+
+      statusResult.style.display = "block";
+
+      if(!app){
+        statusResult.innerHTML = `❌ No application found for <strong>${id}</strong>.`;
+        return;
+      }
+
+      const badge =
+        app.status === "Approved" ? "🟢 APPROVED" :
+        app.status === "Rejected" ? "🔴 REJECTED" : "🟡 PENDING";
+
+      statusResult.innerHTML =
+        `${badge}<br>
+         <strong>Application ID:</strong> ${app.appId}<br>
+         <strong>Name:</strong> ${app.name}<br>
+         <strong>Status:</strong> ${app.status}<br>
+         <strong>Admin Note:</strong> ${app.adminNote || "—"}`;
+    });
+
+    // Admin Update (demo)
+    const adminForm = document.getElementById("adminForm");
+    const adminResult = document.getElementById("adminResult");
+
+    adminForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const pin = document.getElementById("a_pin").value.trim();
+      const id = document.getElementById("a_appid").value.trim().toUpperCase();
+      const newStatus = document.getElementById("a_status").value;
+      const note = document.getElementById("a_note").value.trim();
+
+      adminResult.style.display = "block";
+
+      if(pin !== ADMIN_PIN){
+        adminResult.innerHTML = "❌ Wrong PIN.";
+        return;
+      }
+
+      const apps = getApps();
+      const idx = apps.findIndex(a => a.appId === id);
+
+      if(idx === -1){
+        adminResult.innerHTML = `❌ Application not found: <strong>${id}</strong>`;
+        return;
+      }
+
+      apps[idx].status = newStatus;
+      apps[idx].adminNote = note || apps[idx].adminNote || "";
+      saveApps(apps);
+
+      adminResult.innerHTML = `✅ Updated <strong>${id}</strong> to <strong>${newStatus}</strong>.`;
+      adminForm.reset();
+    });
+  </script>
+
+</body>
+</html>
